@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scool Tracker: know what's due before it's due</title>
+<meta name="description" content="Scool Tracker puts your homework, tests and grades on one screen and ranks them by what hits first. Free while in beta. Join the waitlist.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#06100E" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F4F8F6" media="(prefers-color-scheme: light)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Scool Tracker: know what's due before it's due">
+<meta property="og:description" content="Homework, tests and grades on one screen. Free while in beta. Join the waitlist.">
+<meta property="og:image" content="og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scool Tracker. Know what's due. Before it's due.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scool Tracker: know what's due before it's due">
+<meta name="twitter:description" content="Homework, tests and grades on one screen. Free while in beta.">
+<meta name="twitter:image" content="og.png">
+<!-- TODO(deploy): make og:image an absolute URL and add og:url once the real domain exists. -->
+<link rel="preload" href="style.css" as="style">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.remove('no-js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-today" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12.5l3 3 5-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 10h16M9 3.5v4M15 3.5v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-grades" viewBox="0 0 24 24"><path d="M6 19V11M12 19V5M18 19v-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-study" viewBox="0 0 24 24"><circle cx="12" cy="13" r="7.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 9v4l2.5 1.5M9.5 3.5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sb" viewBox="0 0 60 12"><g fill="currentColor"><rect x="0" y="7" width="3" height="4" rx=".8"/><rect x="5" y="5" width="3" height="6" rx=".8"/><rect x="10" y="2.5" width="3" height="8.5" rx=".8"/><rect x="15" y="0" width="3" height="11" rx=".8"/><path d="M29.5 2.2c2.6 0 5 1 6.8 2.7l-1.1 1.2a7.6 7.6 0 0 0-11.4 0l-1.1-1.2a9.7 9.7 0 0 1 6.8-2.7zm0 3.4c1.7 0 3.2.7 4.4 1.8L32.8 8.6a4.4 4.4 0 0 0-6.6 0L25.1 7.4c1.2-1.1 2.7-1.8 4.4-1.8zm0 3.3c.9 0 1.7.4 2.3 1L29.5 11.4l-2.3-1.5c.6-.6 1.4-1 2.3-1z" transform="translate(-4 0)"/></g><rect x="40.5" y=".5" width="17" height="10" rx="3" fill="none" stroke="currentColor" opacity=".5"/><rect x="42" y="2" width="12" height="7" rx="1.8" fill="currentColor"/><rect x="58.2" y="3.6" width="1.4" height="3.8" rx=".7" fill="currentColor" opacity=".5"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Scool Tracker home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#A8F0D2"/><path d="M18 33l9 9 19-21" fill="none" stroke="#06100E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Scool Tracker
+    </a>
+    <a class="btn btn-sm" href="#join">Join the waitlist</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap">
+    <h1 id="hero-h">Know what's due. Before it's due.</h1>
+    <p class="lede">Homework, tests and grades on one screen, ranked by what hits first. Works on your phone, Chromebook or PC.</p>
+    <div class="cta">
+      <a class="btn" id="hero-cta" href="#join">Join the waitlist <svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
+      <small>Free while in beta. Email only.</small>
+    </div>
+    <figure class="hero-phone" id="hero-phone">
+      <div class="phone" role="img" aria-label="Phone showing the Today screen. Sample assignments are tagged Steady, Urgent and Emergency as their due dates get closer.">
+        <div class="island" aria-hidden="true"></div>
+        <div class="screen" aria-hidden="true">
+          <div class="sb"><span>9:41</span><svg><use href="#i-sb"/></svg></div>
+          <div class="s-head"><div><div class="s-date">Wednesday</div><h3>Today</h3></div><span class="badge b-blue">Blue day</span></div>
+          <div class="left" id="h-left"><b id="h-count">4</b> to do</div>
+          <div class="task trow" id="h-flip"><span class="chk"><svg viewBox="0 0 16 16"><path d="M3.5 8.4l3 3 6-6.6"/></svg></span><div class="tmain"><span class="task-title">Chem lab write-up</span><span class="task-sub" id="h-flip-sub">Chemistry · due today</span></div><span class="badge b-red" id="h-flip-b">Emergency</span></div>
+          <div class="task trow"><span class="chk"><svg viewBox="0 0 16 16"><path d="M3.5 8.4l3 3 6-6.6"/></svg></span><div class="tmain"><span class="task-title">Quiz: Chapter 7</span><span class="task-sub">Algebra II · due tomorrow</span></div><span class="badge b-amber">Urgent</span></div>
+          <div class="task trow" id="h-t3"><span class="chk"><svg viewBox="0 0 16 16"><path d="M3.5 8.4l3 3 6-6.6"/></svg></span><div class="tmain"><span class="task-title">Read act 2</span><span class="task-sub">English · due in 2 days</span></div><span class="badge b-amber">Urgent</span></div>
+          <div class="task trow"><span class="chk"><svg viewBox="0 0 16 16"><path d="M3.5 8.4l3 3 6-6.6"/></svg></span><div class="tmain"><span class="task-title">Spanish vocab set</span><span class="task-sub">Spanish · due in 5 days</span></div><span class="badge b-gray">Steady</span></div>
+          <div class="task trow"><span class="chk"><svg viewBox="0 0 16 16"><path d="M3.5 8.4l3 3 6-6.6"/></svg></span><div class="tmain"><span class="task-title">History outline</span><span class="task-sub">World History · due in 6 days</span></div><span class="badge b-gray">Steady</span></div>
+        </div>
+      </div>
+    </figure>
+    <p class="sample">Sample data</p>
+  </div>
+</section>
+
+<section class="problem" aria-labelledby="problem-h">
+  <div class="wrap">
+    <p class="eyebrow">The problem</p>
+    <h2 id="problem-h">School stuff piles up quietly.</h2>
+    <ul class="pain">
+      <li>You hear about the quiz when someone brings it up.</li>
+      <li>You don't know your grade until the report card.</li>
+      <li>You cram the night before. Again.</li>
+    </ul>
+    <p class="lede fix">Scool Tracker lines it all up, soonest first.</p>
+  </div>
+</section>
+
+<section class="story" aria-labelledby="story-h">
+  <div class="wrap">
+    <div class="story-head">
+      <p class="eyebrow">What you get</p>
+      <h2 id="story-h">One screen at a time.</h2>
+    </div>
+    <div class="story-grid">
+      <div class="stage" id="stage" data-state="today">
+        <div class="phone" role="img" aria-label="Phone showing the Today, Calendar, Grades and Study screens one after another, with sample data">
+          <div class="island" aria-hidden="true"></div>
+          <div class="scr scr-today" aria-hidden="true">
+            <div class="sb"><span>9:41</span><svg><use href="#i-sb"/></svg></div>
+            <div class="s-head"><div><div class="s-date">Wednesday</div><h3>Today</h3></div><span class="badge b-blue">Blue day</span></div>
+            <div class="task trow"><span class="chk"></span><div class="tmain"><span class="task-title">Chem lab write-up</span><span class="task-sub">Chemistry · due today</span></div><span class="badge b-red">Emergency</span></div>
+            <div class="task trow"><span class="chk"></span><div class="tmain"><span class="task-title">Quiz: Chapter 7</span><span class="task-sub">Algebra II · due tomorrow</span></div><span class="badge b-amber">Urgent</span></div>
+            <div class="task trow"><span class="chk"></span><div class="tmain"><span class="task-title">Read act 2</span><span class="task-sub">English · due in 2 days</span></div><span class="badge b-amber">Urgent</span></div>
+            <div class="task trow"><span class="chk"></span><div class="tmain"><span class="task-title">Spanish vocab set</span><span class="task-sub">Spanish · due in 5 days</span></div><span class="badge b-gray">Steady</span></div>
+            <div class="tabs"><span class="on"><svg><use href="#i-today"/></svg>Today</span><span><svg><use href="#i-cal"/></svg>Calendar</span><span><svg><use href="#i-grades"/></svg>Grades</span><span><svg><use href="#i-study"/></svg>Study</span></div>
+          </div>
+          <div class="scr scr-cal" aria-hidden="true">
+            <div class="sb"><span>9:41</span><svg><use href="#i-sb"/></svg></div>
+            <div class="s-head"><div><div class="s-date">2026</div><h3>November</h3></div><span class="badge b-blue">Blue day</span></div>
+            <div class="cal"><i class="dow">S</i><i class="dow">M</i><i class="dow">T</i><i class="dow">W</i><i class="dow">T</i><i class="dow">F</i><i class="dow">S</i><b class="cd">1</b><b class="cd cg">2</b><b class="cd cb">3</b><b class="cd cg">4</b><b class="cd cb">5</b><b class="cd cg">6</b><b class="cd">7</b><b class="cd">8</b><b class="cd cb">9</b><b class="cd cg">10</b><b class="cd cb now">11</b><b class="cd cg">12</b><b class="cd cb">13</b><b class="cd">14</b><b class="cd">15</b><b class="cd cg">16</b><b class="cd cb">17</b><b class="cd cg">18</b><b class="cd cb">19</b><b class="cd cg">20</b><b class="cd">21</b><b class="cd">22</b><b class="cd cb">23</b><b class="cd cg">24</b><b class="cd cb">25</b><b class="cd co">26</b><b class="cd co">27</b><b class="cd">28</b><b class="cd">29</b><b class="cd cg">30</b></div>
+            <div class="legend"><span><i class="dot cb"></i>Blue</span><span><i class="dot cg"></i>Green</span><span><i class="dot co"></i>Day off</span></div>
+            <div class="tabs"><span><svg><use href="#i-today"/></svg>Today</span><span class="on"><svg><use href="#i-cal"/></svg>Calendar</span><span><svg><use href="#i-grades"/></svg>Grades</span><span><svg><use href="#i-study"/></svg>Study</span></div>
+          </div>
+          <div class="scr scr-grades" aria-hidden="true">
+            <div class="sb"><span>9:41</span><svg><use href="#i-sb"/></svg></div>
+            <div class="s-head"><h3>Grades</h3><span class="badge b-blue">GPA 3.25</span></div>
+            <div class="task"><div class="task-top"><span class="task-title">1. Algebra II</span><span class="badge b-green">A</span></div><div class="task-top"><span class="pct">94%</span><span class="badge b-green">Solid</span></div></div>
+            <div class="task"><div class="task-top"><span class="task-title">2. English</span><span class="badge b-blue">B</span></div><div class="task-top"><span class="pct">86%</span><span class="badge b-amber">Watch</span></div></div>
+            <div class="task"><div class="task-top"><span class="task-title">3. Chemistry</span><span class="badge b-amber">C</span></div><div class="task-top"><span class="pct">77%</span><span class="badge b-red">Focus</span></div></div>
+            <div class="task"><div class="task-top"><span class="task-title">4. Spanish</span><span class="badge b-green">A</span></div><div class="task-top"><span class="pct">91%</span><span class="badge b-green">Solid</span></div></div>
+            <div class="s-note">You type the percents.</div>
+            <div class="tabs"><span><svg><use href="#i-today"/></svg>Today</span><span><svg><use href="#i-cal"/></svg>Calendar</span><span class="on"><svg><use href="#i-grades"/></svg>Grades</span><span><svg><use href="#i-study"/></svg>Study</span></div>
+          </div>
+          <div class="scr scr-study" aria-hidden="true">
+            <div class="sb"><span>9:41</span><svg><use href="#i-sb"/></svg></div>
+            <div class="s-head"><h3>Study</h3><span class="badge b-gray">Coming</span></div>
+            <div class="task"><div class="task-top"><span class="task-title">Quiz: Chapter 7</span></div><div class="task-sub">Algebra II · due tomorrow</div></div>
+            <div class="chips"><span class="chip">15 min</span><span class="chip on">25 min</span><span class="chip">40 min</span></div>
+            <div class="card timer"><div class="time">25:00</div><div class="task-sub">Ready when you are</div></div>
+            <span class="fake-btn">Start</span>
+            <div class="tabs"><span><svg><use href="#i-today"/></svg>Today</span><span><svg><use href="#i-cal"/></svg>Calendar</span><span><svg><use href="#i-grades"/></svg>Grades</span><span class="on"><svg><use href="#i-study"/></svg>Study</span></div>
+          </div>
+        </div>
+        <div class="dots" id="dots" role="group" aria-label="Pick a screen">
+          <button type="button" data-go="today" aria-label="Show the Today screen" aria-current="true"></button>
+          <button type="button" data-go="calendar" aria-label="Show the Calendar screen"></button>
+          <button type="button" data-go="grades" aria-label="Show the Grades screen"></button>
+          <button type="button" data-go="study" aria-label="Show the Study screen"></button>
+        </div>
+      </div>
+      <div class="steps" id="steps">
+        <div class="step" data-state="today">
+          <h3>See what's due first.</h3>
+          <p>Every assignment gets a tag. Red goes first, amber next, gray can wait.</p>
+          <div class="tag-row"><span class="badge b-gray">Steady</span><span class="badge b-amber">Urgent</span><span class="badge b-red">Emergency</span></div>
+        </div>
+        <div class="step" data-state="calendar">
+          <h3>Know which day it is.</h3>
+          <p>Mark your Blue and Green days and your days off. Your week lines up with your school's.</p>
+        </div>
+        <div class="step" data-state="grades">
+          <h3>Know your grade now.</h3>
+          <p>Type a percent. You get the letter and your GPA. Low classes are marked Focus. You type grades yourself, so there is no school login.</p>
+        </div>
+        <div class="step" data-state="study">
+          <h3>Then study the right thing.</h3>
+          <p>A 15, 25 or 40 minute study timer for whatever is on top of your list.</p>
+          <p class="later-tag">Coming after the first beta</p>
+          <p class="fine">Sample data, not real users.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats" aria-labelledby="stats-h">
+  <div class="wrap">
+    <p class="eyebrow">By the numbers</p>
+    <h2 id="stats-h">Small on purpose.</h2>
+    <div class="stat-grid">
+      <div class="stat"><b>3</b><span>urgency levels: Steady, Urgent, Emergency</span></div>
+      <div class="stat"><b>4</b><span>screens: Today, Calendar, Grades, Study</span></div>
+      <div class="stat"><b>0</b><span>school logins. You type your grades yourself.</span></div>
+      <div class="stat"><b>$0</b><span>while in beta</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="specs" aria-labelledby="specs-h">
+  <div class="wrap">
+    <p class="eyebrow">What's inside</p>
+    <h2 id="specs-h">Five things. Each one simple.</h2>
+    <ul class="spec-list">
+      <li><h3>Today</h3><p>Ranks every assignment by how soon it's due.</p><div class="detail"><span class="badge b-gray">Steady</span><span class="badge b-amber">Urgent</span><span class="badge b-red">Emergency</span></div></li>
+      <li><h3>Grades</h3><p>Percent to letter to GPA. Classes under 80 are marked Focus.</p><div class="detail"><span class="badge b-green">Solid</span><span class="badge b-amber">Watch</span><span class="badge b-red">Focus</span></div></li>
+      <li><h3>Calendar</h3><p>Your Blue and Green days and your days off.</p><div class="detail"><span class="badge b-blue">Blue day</span><span class="badge b-green">Green day</span></div></li>
+      <li><h3>Study plan</h3><p>Picks what to study first. A 15, 25 or 40 minute timer comes later.</p><div class="detail"><span class="later-tag">Timer: coming</span></div></li>
+      <li><h3>Reminders</h3><p>Phone reminders before things are due.</p><div class="detail"><span class="later-tag">Coming after the first beta</span></div></li>
+    </ul>
+
+    <div class="try" id="try">
+      <div class="ctl">
+        <h3>Try the tags</h3>
+        <fieldset>
+          <legend>My assignment is due in</legend>
+          <div class="seg">
+            <input type="radio" name="due" id="d5" value="5" checked><label for="d5">5 days</label>
+            <input type="radio" name="due" id="d2" value="2"><label for="d2">2 days</label>
+            <input type="radio" name="due" id="d0" value="0"><label for="d0">Today</label>
+          </div>
+        </fieldset>
+        <p class="fine">Same rule the app uses. Due today or late is Emergency, 1 to 2 days is Urgent, anything later is Steady.</p>
+      </div>
+      <div class="task trow" aria-live="polite">
+        <span class="chk"></span>
+        <div class="tmain"><span class="task-title">English essay</span><span class="task-sub" id="try-sub">due in 5 days</span></div>
+        <span class="badge b-gray" id="try-badge">Steady</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" aria-labelledby="how-h">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2 id="how-h">Set up once. Open it each day.</h2>
+    <ol>
+      <li><h3>Sign up</h3><p>Use your email. You have to be 13 or older.</p></li>
+      <li><h3>Add your school and classes</h3><p>Pick your Blue and Green days, your periods and your days off.</p></li>
+      <li><h3>Get your day plan</h3><p>Open Today. The most urgent thing is at the top.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="price" aria-labelledby="price-h">
+  <div class="wrap">
+    <p class="eyebrow">Price</p>
+    <h2 id="price-h">Free while in beta.</h2>
+    <div class="row">
+      <p class="lede">Join the waitlist and you are in line for the beta. Nothing to buy.</p>
+      <div class="later"><p><strong>Later:</strong> a free plan and a Pro plan at $2.99 a month. Pro is not for sale yet.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <div><p class="eyebrow">FAQ</p><h2 id="faq-h">Questions</h2></div>
+    <div>
+      <details><summary>Is it free?</summary><div class="ans"><p>Yes, while it is in beta. Later there will be a free plan and a Pro plan at $2.99 a month.</p></div></details>
+      <details><summary>Does it work on iPhone, Android and Chromebook?</summary><div class="ans"><p>It runs in the browser, so it works on a phone, a Chromebook or a PC.</p></div></details>
+      <details><summary>Does it connect to StudentVUE or Google Classroom?</summary><div class="ans"><p>No. You type your grades and assignments yourself. That keeps your school login out of it.</p></div></details>
+      <details><summary>Who can see my data?</summary><div class="ans"><p>Only you. We do not sell it. <a href="privacy.html">Read the privacy page.</a></p></div></details>
+      <details><summary>How old do I have to be?</summary><div class="ans"><p>13 or older.</p></div></details>
+      <details><summary>When does it launch?</summary><div class="ans"><p>No date yet. People on the waitlist get in first.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="join" id="join" aria-labelledby="join-h">
+  <div class="wrap join-grid">
+    <div>
+      <p class="eyebrow">Join</p>
+      <h2 id="join-h">Get in line for the beta.</h2>
+      <p class="lede">Leave your email. We write once, when your spot opens.</p>
+    </div>
+    <div class="form-card">
+      <form id="wl" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" required placeholder="you@example.com" aria-describedby="email-err">
+          <p class="field-err" id="email-err" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="grade">Grade</label>
+          <div class="sel"><select id="grade" name="grade" required aria-describedby="grade-err">
+            <option value="" selected disabled>Pick one</option>
+            <option>9</option><option>10</option><option>11</option><option>12</option>
+          </select></div>
+          <p class="field-err" id="grade-err" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="school">School <span class="hint">(optional)</span></label>
+          <input id="school" name="school" type="text" autocomplete="organization" maxlength="100">
+        </div>
+        <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <button class="btn" type="submit" id="wl-btn"><span class="lbl">Join the waitlist</span><span class="spin" aria-hidden="true"></span></button>
+        <p class="form-msg" id="wl-msg" role="alert" aria-live="assertive"></p>
+        <p class="fine">By joining you agree to the <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy</a> page. You must be 13 or older.</p>
+      </form>
+      <div class="thanks" id="thanks" tabindex="-1">
+        <svg class="check" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29"/><path d="M19 33.5l9.5 9.5L46 22.5"/></svg>
+        <h3 id="thanks-h">You're on the list.</h3>
+        <p id="thanks-p">We will email you when your spot opens.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-word" aria-hidden="true">Scool Tracker</div>
+    <div class="foot-row">
+      <ul>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><span id="contact">Contact: coming soon</span></li>
+      </ul>
+      <span>Made by a high schooler.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar" aria-hidden="true">
+  <span>Free while in beta</span>
+  <a class="btn btn-sm" href="#join" tabindex="-1">Join the waitlist</a>
+</div>
+
+<script src="config.js"></script>
+<script src="main.js" defer></script>
+</body>
+</html>

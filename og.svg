@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#A8F0D2"/><stop offset="1" stop-color="#C7BAFF"/></linearGradient></defs>
+<rect width="1200" height="630" fill="#06100E"/>
+<g font-family="Helvetica Neue,Arial,sans-serif" fill="#E9F3F0">
+<text x="80" y="110" font-size="30" font-weight="700" letter-spacing="-0.5">Scool Tracker</text>
+<text x="80" y="290" font-size="86" font-weight="700" letter-spacing="-4">Know what's due.</text>
+<text x="80" y="390" font-size="86" font-weight="700" letter-spacing="-4">Before it's due.</text>
+<rect x="80" y="490" width="360" height="72" rx="36" fill="url(#g)"/>
+<text x="260" y="537" font-size="30" font-weight="700" fill="#06100E" text-anchor="middle">Free while in beta</text></g>
+<g transform="translate(900,70)"><rect width="250" height="500" rx="40" fill="#000" stroke="#1d3a33"/><rect x="10" y="10" width="230" height="480" rx="32" fill="#171715"/>
+<rect x="28" y="60" width="194" height="58" rx="10" fill="#1D1D1B" stroke="#3A3A35"/><rect x="40" y="76" width="84" height="10" rx="5" fill="#F1EFE8"/><rect x="146" y="72" width="66" height="22" rx="11" fill="#3A1616"/>
+<rect x="28" y="130" width="194" height="58" rx="10" fill="#1D1D1B" stroke="#3A3A35"/><rect x="40" y="146" width="96" height="10" rx="5" fill="#F1EFE8"/><rect x="152" y="142" width="60" height="22" rx="11" fill="#3A2C10"/>
+<rect x="28" y="200" width="194" height="58" rx="10" fill="#1D1D1B" stroke="#3A3A35"/><rect x="40" y="216" width="76" height="10" rx="5" fill="#F1EFE8"/><rect x="152" y="212" width="60" height="22" rx="11" fill="#2A2A26"/></g>
+</svg>
