@@ -159,14 +159,6 @@ h3 { font-size: 1.25rem; font-weight: 650; letter-spacing: -0.015em; line-height
 @media (max-width: 599px) { .hero-phone { margin-top: 104px; } }
 @media (min-width: 600px) { .hero-doodle { width: 170px; left: -178px; top: 40px; } }
 @media (min-width: 1000px) { .hero-doodle { width: 200px; left: -196px; top: 30px; } }
-.streak { position: absolute; z-index: 6; right: clamp(-96px, -9vw, -20px); top: 92px; display: flex; align-items: center; gap: 6px; padding: 8px 14px 8px 10px; border-radius: 16px;
-  background: var(--pop-sun); color: var(--on-pop); box-shadow: 0 5px 0 var(--pop-sun-edge); font-family: var(--title); font-weight: 900; transform: rotate(4deg); }
-.streak .flame { width: 26px; height: 26px; transform-origin: 50% 90%; }
-.streak b { font-size: 1.35rem; line-height: 1; font-variant-numeric: tabular-nums; }
-.streak span { font-size: .85rem; line-height: 1; }
-.streak.bump { animation: bump .5s cubic-bezier(.3,1.6,.5,1); }
-@keyframes bump { 0% { transform: rotate(4deg) scale(1); } 40% { transform: rotate(-3deg) scale(1.18); } 100% { transform: rotate(4deg) scale(1); } }
-@keyframes flicker { 0%, 100% { transform: scale(1) rotate(-2deg); } 50% { transform: scale(1.08, .94) rotate(3deg); } }
 @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
 @media (prefers-reduced-motion: no-preference) {
@@ -174,7 +166,6 @@ h3 { font-size: 1.25rem; font-weight: 650; letter-spacing: -0.015em; line-height
   .hero .lede { animation: rise .8s .08s cubic-bezier(.2,.7,.2,1) both; }
   .hero .cta { animation: rise .8s .16s cubic-bezier(.2,.7,.2,1) both; }
   .hero-phone .phone { animation: rise 1s .26s cubic-bezier(.2,.7,.2,1) both, float 7s 1.5s ease-in-out infinite; }
-  .streak .flame { animation: flicker 1.1s ease-in-out infinite; }
 }
 
 /* phone + app mockup (real app palette) */

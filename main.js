@@ -85,17 +85,15 @@
     var timers = [], running = false;
     var later = function (fn, ms) { timers.push(setTimeout(fn, ms)); };
     var left = function (n) { cnt.textContent = n; };
-    var streak = $('streak'), hd = $('hero-doodle'), sk = 12;
-    var tickStreak = function () {
-      sk = sk >= 99 ? 12 : sk + 1; streak.textContent = sk;
-      streak.parentNode.classList.remove('bump'); void streak.offsetWidth; streak.parentNode.classList.add('bump');
+    var hd = $('hero-doodle');
+    var cheer = function () {
       if (window.Doodle && hd) { window.Doodle.set(hd, 'jump'); later(function () { window.Doodle.set(hd, 'wave'); }, 1500); }
     };
     var cycle = function () {
       flip.classList.remove('done'); t3.classList.remove('done'); left(5); setBadge(0);
       later(function () { setBadge(1); }, 1800);
       later(function () { setBadge(2); }, 3600);
-      later(function () { flip.classList.add('done'); left(4); tickStreak(); }, 5400);
+      later(function () { flip.classList.add('done'); left(4); cheer(); }, 5400);
       later(function () { t3.classList.add('done'); left(3); }, 6600);
       later(cycle, 9600);
     };
