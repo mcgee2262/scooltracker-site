@@ -15,52 +15,43 @@
     }
   });
 
-  /* one scroll loop (rAF-throttled): nav shrink, hero parallax, story step */
-  var nav = $('nav'), heroPhone = $('hero-phone');
-  var stage = $('stage'), steps = [].slice.call(document.querySelectorAll('.step'));
-  var dots = [].slice.call(document.querySelectorAll('#dots button'));
-  var current = '', ticking = false;
-
-  function setState(s) {
-    if (!stage || s === current) return;
-    current = s;
-    stage.setAttribute('data-state', s);
-    steps.forEach(function (el) { el.classList.toggle('on', el.getAttribute('data-state') === s); });
-    dots.forEach(function (d) { d.setAttribute('aria-current', d.getAttribute('data-go') === s ? 'true' : 'false'); });
-  }
+  /* one scroll loop (rAF-throttled): nav shrink, hero parallax, lesson progress bar */
+  var nav = $('nav'), heroPhone = $('hero-phone'), bar = $('lessonbar'), ticking = false;
   function frame() {
     ticking = false;
     var y = window.scrollY, vh = window.innerHeight;
+    var max = document.documentElement.scrollHeight - vh;
     if (nav) nav.classList.toggle('scrolled', y > 24);
+    if (bar) bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0).toFixed(4) + ')';
     if (heroPhone && !reduce && y < vh * 1.5) heroPhone.style.setProperty('--py', (-Math.min(y, vh) * 0.07).toFixed(1) + 'px');
-    if (steps.length) {
-      var mid = vh * (window.innerWidth < 900 ? 0.7 : 0.5), best = null, bd = 1e9;
-      steps.forEach(function (el) {
-        var r = el.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - mid);
-        if (d < bd) { bd = d; best = el; }
-      });
-      if (best) setState(best.getAttribute('data-state'));
-    }
   }
   function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   frame();
 
-  /* progress dots jump to a step */
-  dots.forEach(function (d) {
-    d.addEventListener('click', function () {
-      var t = document.querySelector('.step[data-state="' + d.getAttribute('data-go') + '"]');
-      if (t) t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
-    });
-  });
-
-  /* snap-feeling steps: gentle proximity snap only while the story is on screen (desktop, motion allowed) */
-  var story = document.querySelector('.story');
-  if (story && 'IntersectionObserver' in window && !reduce && window.matchMedia('(min-width: 900px)').matches) {
-    new IntersectionObserver(function (es) {
-      document.documentElement.style.scrollSnapType = es[0].isIntersecting ? 'y proximity' : '';
-    }, { rootMargin: '-30% 0px -30% 0px' }).observe(story);
+  /* sections pop in on scroll; numbers count up. Content is visible without JS or with reduced motion. */
+  var reveals = [].slice.call(document.querySelectorAll('.reveal'));
+  var counts = [].slice.call(document.querySelectorAll('[data-count]'));
+  function countUp(elm) {
+    var to = Number(elm.getAttribute('data-count')), t0 = performance.now(), dur = 900;
+    (function step(now) {
+      var p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      elm.textContent = Math.round(to * e);
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+  if (!reduce && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('anim');
+    var rio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in'); rio.unobserve(e.target);
+        var c = e.target.querySelector('[data-count]'); if (c) countUp(c);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    reveals.forEach(function (r) { rio.observe(r); });
+    counts.forEach(function (c) { if (!c.closest('.reveal')) countUp(c); });
   }
 
   /* sticky mobile CTA: after the hero button leaves, hidden near the join section */
@@ -94,11 +85,17 @@
     var timers = [], running = false;
     var later = function (fn, ms) { timers.push(setTimeout(fn, ms)); };
     var left = function (n) { cnt.textContent = n; };
+    var streak = $('streak'), hd = $('hero-doodle'), sk = 12;
+    var tickStreak = function () {
+      sk = sk >= 99 ? 12 : sk + 1; streak.textContent = sk;
+      streak.parentNode.classList.remove('bump'); void streak.offsetWidth; streak.parentNode.classList.add('bump');
+      if (window.Doodle && hd) { window.Doodle.set(hd, 'jump'); later(function () { window.Doodle.set(hd, 'wave'); }, 1500); }
+    };
     var cycle = function () {
       flip.classList.remove('done'); t3.classList.remove('done'); left(5); setBadge(0);
       later(function () { setBadge(1); }, 1800);
       later(function () { setBadge(2); }, 3600);
-      later(function () { flip.classList.add('done'); left(4); }, 5400);
+      later(function () { flip.classList.add('done'); left(4); tickStreak(); }, 5400);
       later(function () { t3.classList.add('done'); left(3); }, 6600);
       later(cycle, 9600);
     };
@@ -107,23 +104,6 @@
     new IntersectionObserver(function (es) { es[0].isIntersecting ? start() : stop(); }, { threshold: 0.1 }).observe(heroPhone);
     document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else start(); });
   }
-
-  /* try the tags: same rule as app/src/lib/urgency.ts */
-  var radios = document.querySelectorAll('input[name="due"]');
-  var tb = $('try-badge'), ts = $('try-sub');
-  function tag(d) {
-    if (d <= 0) return { n: 'Emergency', c: 'b-red', l: 'due today' };
-    if (d <= 2) return { n: 'Urgent', c: 'b-amber', l: 'due in ' + d + ' day' + (d === 1 ? '' : 's') };
-    return { n: 'Steady', c: 'b-gray', l: 'due in ' + d + ' days' };
-  }
-  function updTag() {
-    var d = 5;
-    radios.forEach(function (r) { if (r.checked) d = Number(r.value); });
-    var t = tag(d);
-    tb.textContent = t.n; tb.className = 'badge pop ' + t.c;
-    ts.textContent = t.l;
-  }
-  radios.forEach(function (r) { r.addEventListener('change', updTag); });
 
   /* waitlist */
   var form = $('wl');

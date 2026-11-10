@@ -6,5 +6,5 @@ window.SCOOL_CONFIG = {
   // TODO(Blaise): set a real contact email, e.g. "name@example.com". Empty = footer shows "Contact: coming soon".
   CONTACT_EMAIL: "",
   // The waitlist table only has an email column today. Flip to true after backend adds grade + school columns.
-  SEND_GRADE_AND_SCHOOL: false
+  SEND_GRADE_AND_SCHOOL: true
 };
