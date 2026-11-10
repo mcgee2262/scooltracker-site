@@ -9,6 +9,7 @@
    Poses are only motion (CSS, off when the user prefers reduced motion). */
 (function (root) {
   'use strict';
+  var ENABLED = false; // mascots hidden for now (2026-11-10). Set true and remove the 'mascots off' block at the end of style.css to bring them back.
   var POSES = ['wave', 'jump', 'worried', 'focused', 'sleepy'];
   var WHO = { wave: 'doodle', jump: 'doodle', worried: 'doodle', focused: 'squib', sleepy: 'squib' };
   var ALT = {
@@ -28,6 +29,7 @@
   }
 
   function render(el) {
+    if (!ENABLED) { el.innerHTML = ''; return; }
     var pose = el.getAttribute('data-doodle') || 'wave';
     var label = el.hasAttribute('data-doodle-label') ? el.getAttribute('data-doodle-label') || true : '';
     el.innerHTML = svg(pose, label);
