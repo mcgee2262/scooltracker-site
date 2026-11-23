@@ -54,6 +54,45 @@
     counts.forEach(function (c) { if (!c.closest('.reveal')) countUp(c); });
   }
 
+  /* hero sign-up: Student ID box + Sign up free.
+     Valid ID -> sessionStorage 'st_handoff_id' + app/?start=id (ID never in the URL, localStorage, cookies or analytics).
+     Empty box -> app/ (normal sign-in). Bad ID -> friendly error under the box. */
+  var form = $('signup-form'), sid = $('sid'), err = $('sid-err');
+  function checkId(raw) {
+    if (window.ScoolLogic && window.ScoolLogic.checkStudentId) return window.ScoolLogic.checkStudentId(raw);
+    var id = String(raw || '').replace(/\s+/g, '');
+    if (!id) return { id: '' };
+    if (!/^\d{5,10}$/.test(id)) return { error: 'Student IDs are 5 to 10 digits, numbers only.' };
+    return { id: id };
+  }
+  function showErr(msg) {
+    err.textContent = msg || '';
+    if (msg) sid.setAttribute('aria-invalid', 'true'); else sid.removeAttribute('aria-invalid');
+  }
+  if (form && sid && err) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var r = checkId(sid.value);
+      if (r.error) { showErr(r.error); sid.focus(); return; }
+      showErr('');
+      if (!r.id) { location.href = 'app/'; return; }
+      try { sessionStorage.setItem('st_handoff_id', r.id); }
+      catch (x) { location.href = 'app/'; return; } // storage blocked: open the normal sign-in screen
+      location.href = 'app/?start=id';
+    });
+    sid.addEventListener('input', function () { if (err.textContent) showErr(''); });
+  }
+  /* header, sticky bar and lower "Sign up free" buttons: scroll to the hero box and focus it */
+  [].slice.call(document.querySelectorAll('[data-signup]')).forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (!sid) return;
+      e.preventDefault();
+      var top = sid.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.3;
+      window.scrollTo({ top: Math.max(0, top), behavior: reduce ? 'auto' : 'smooth' });
+      sid.focus({ preventScroll: true });
+    });
+  });
+
   /* sticky mobile CTA: after the hero button leaves, hidden near the join section */
   var mbar = $('mbar'), heroCta = $('hero-cta'), join = $('join');
   if (mbar && heroCta && join && 'IntersectionObserver' in window) {

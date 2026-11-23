@@ -169,12 +169,22 @@
     return null;
   }
 
+  /* ---------- hero sign-up (landing only, same rule as the app's ID screen) ---------- */
+  // Returns { id } (digits only, '' if empty) or { error } with a friendly message.
+  function checkStudentId(raw) {
+    var id = String(raw == null ? '' : raw).replace(/\s+/g, '');
+    if (!id) return { id: '' };
+    if (!/^\d+$/.test(id)) return { error: 'Numbers only, please. Your student ID is just digits.' };
+    if (id.length < 5 || id.length > 10) return { error: 'Student IDs are 5 to 10 digits. Check yours and try again.' };
+    return { id: id };
+  }
+
   return {
     SCALE: SCALE, percentToLetter: percentToLetter, percentToGpa: percentToGpa, averageGpa: averageGpa,
     letterBadgeClass: letterBadgeClass, priorityTier: priorityTier, pointsToNextLetter: pointsToNextLetter,
     URGENCY_BADGE_CLASS: URGENCY_BADGE_CLASS, BADGE_ORDER: BADGE_ORDER, STUDY_MINUTES: STUDY_MINUTES,
     daysUntil: daysUntil, taskBadge: taskBadge, suggestedMinutes: suggestedMinutes, dueLabel: dueLabel,
     toIso: toIso, parseIso: parseIso, parseDayNames: parseDayNames, dayInfo: dayInfo, monthCells: monthCells,
-    cycleBadgeClass: cycleBadgeClass, validateSetup: validateSetup
+    cycleBadgeClass: cycleBadgeClass, validateSetup: validateSetup, checkStudentId: checkStudentId
   };
 });

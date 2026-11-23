@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap"></noscript>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=34d18dd-1795448981">
 <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -54,7 +54,7 @@
       <a href="#free">It's free</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-sm" href="app/">Start free</a>
+    <a class="btn btn-sm" href="#signup" data-signup>Sign up free</a>
   </div>
 </header>
 
@@ -64,12 +64,20 @@
   <div class="wrap">
     <h1 id="hero-h">Know what's due. Before it's due.</h1>
     <p class="lede">Homework, tests and grades on one screen, ranked by what hits first. Works on your phone, Chromebook or PC.</p>
-    <div class="cta">
-      <div class="cta-row">
-        <a class="btn" id="hero-cta" href="app/">Start free, it takes 10 seconds</a>
-        <a class="btn btn-2" href="#demos">Play the demos</a>
+    <div class="cta" id="signup">
+      <form class="signup" id="signup-form" action="app/" method="get" novalidate>
+        <label class="sr-only" for="sid">Student ID</label>
+        <div class="signup-row">
+          <input class="sid" id="sid" type="text" inputmode="numeric" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="10" placeholder="Your student ID" aria-describedby="sid-hint sid-err">
+          <p class="sid-err" id="sid-err" role="alert" aria-live="assertive"></p>
+          <button class="btn btn-go" id="hero-cta" type="submit">Sign up free</button>
+        </div>
+      </form>
+      <div class="cta-links">
+        <a href="app/?start=guest">or start without an account</a>
+        <a href="#demos">Play the demos</a>
       </div>
-      <small>100% free. No email needed: just your student ID, or start without an account.</small>
+      <small id="sid-hint">100% free. No email. Your student ID is your login, so don't share it.</small>
     </div>
     <figure class="hero-phone" id="hero-phone">
       <div class="hero-doodle" data-doodle="wave" data-doodle-label="Doodle, a green, wide-eyed bird mascot, cheering and holding up a gold star" id="hero-doodle"></div>
@@ -359,7 +367,7 @@
       <p class="free-note"><b>No ads. Nothing to buy.</b></p>
     </div>
     <div class="plans-foot reveal">
-      <a class="btn" href="app/">Start free</a>
+      <a class="btn" href="#signup" data-signup>Sign up free</a>
     </div>
   </div>
 </section>
@@ -380,7 +388,7 @@
       <details><summary>Does it work on iPhone, Android and Chromebook?</summary><div class="ans"><p>It runs in the browser, so it works on a phone, a Chromebook or a PC.</p></div></details>
       <details><summary>Are the demos real?</summary><div class="ans"><p>They use the same rules as the app, with sample data. The study timer is in the app. Reminders are not in the app yet, so they are marked Coming soon.</p></div></details>
       <details><summary>How old do I have to be?</summary><div class="ans"><p>13 or older.</p></div></details>
-      <details><summary>When does it launch?</summary><div class="ans"><p>It's live now. Tap Start free.</p></div></details>
+      <details><summary>When does it launch?</summary><div class="ans"><p>It's live now. Tap Sign up free.</p></div></details>
     </div>
   </div>
 </section>
@@ -394,11 +402,11 @@
     </div>
     <div class="form-card">
       <ol class="start-steps">
-        <li><span><b>Open the app.</b></span></li>
-        <li><span><b>Type your student ID</b> or tap Start now.</span></li>
+        <li><span><b>Type your student ID</b> at the top of this page.</span></li>
+        <li><span><b>Tap Sign up free.</b> Or start without an account.</span></li>
         <li><span><b>Tap South Lakes</b>, or pick your school.</span></li>
       </ol>
-      <a class="btn" href="app/">Start free</a>
+      <a class="btn" href="#signup" data-signup>Sign up free</a>
       <p class="fine">By using it you agree to the <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy</a> page. You must be 13 or older.</p>
     </div>
   </div>
@@ -422,14 +430,14 @@
 
 <div class="mbar" id="mbar" aria-hidden="true">
   <span>100% free</span>
-  <a class="btn btn-sm" href="app/" tabindex="-1">Start free</a>
+  <a class="btn btn-sm" href="#signup" data-signup tabindex="-1">Sign up free</a>
 </div>
 
-<script src="config.js"></script>
-<script src="doodle/doodle.js" defer></script>
-<script src="demo/logic.js" defer></script>
-<script src="demo/fx.js" defer></script>
-<script src="demo/demos.js" defer></script>
-<script src="main.js" defer></script>
+<script src="config.js?v=34d18dd-1795448981"></script>
+<script src="doodle/doodle.js?v=34d18dd-1795448981" defer></script>
+<script src="demo/logic.js?v=34d18dd-1795448981" defer></script>
+<script src="demo/fx.js?v=34d18dd-1795448981" defer></script>
+<script src="demo/demos.js?v=34d18dd-1795448981" defer></script>
+<script src="main.js?v=34d18dd-1795448981" defer></script>
 </body>
 </html>

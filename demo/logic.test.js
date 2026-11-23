@@ -153,3 +153,19 @@ describe('helpers', () => {
     assert.equal(L.validateSetup('X', '2026-08-10', '2027-06-01'), null);
   });
 });
+
+describe('checkStudentId', () => {
+  it('empty or spaces = no ID (normal app sign-in)', () => {
+    assert.deepEqual(L.checkStudentId(''), { id: '' });
+    assert.deepEqual(L.checkStudentId('   '), { id: '' });
+  });
+  it('strips spaces, accepts 5 to 10 digits', () => {
+    assert.deepEqual(L.checkStudentId(' 123 45 '), { id: '12345' });
+    assert.deepEqual(L.checkStudentId('1234567890'), { id: '1234567890' });
+  });
+  it('rejects letters, too short, too long', () => {
+    assert.ok(L.checkStudentId('12a45').error);
+    assert.ok(L.checkStudentId('1234').error);
+    assert.ok(L.checkStudentId('12345678901').error);
+  });
+});
