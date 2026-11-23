@@ -563,3 +563,14 @@ input[type="range"]:focus-visible::-moz-range-thumb { outline: 3px solid var(--f
 /* mascots off (see ENABLED in doodle/doodle.js) */
 [data-doodle] { display: none !important; }
 .demo:has(.demo-doodle) .demo-top { padding-right: 0 !important; }
+
+/* free section + start steps */
+.free-card { padding: clamp(20px, 3vw, 36px); }
+.free-list { list-style: none; padding: 0; display: grid; gap: 14px; }
+.free-list li { display: flex; gap: 12px; align-items: center; font-weight: 650; }
+.free-list .yes { flex: none; width: 26px; height: 26px; padding: 4px; border-radius: 50%; background: var(--pop-mint); color: var(--on-pop); }
+.free-note { margin-top: 22px; padding-top: 18px; border-top: 2px solid var(--line); }
+.start-steps { list-style: none; padding: 0; counter-reset: s; display: grid; gap: 16px; margin-bottom: 24px; }
+.start-steps li { counter-increment: s; display: flex; gap: 14px; align-items: center; font-size: 1.1rem; }
+.start-steps li::before { content: counter(s); flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: var(--title); font-weight: 900; background: var(--pop-mint); color: var(--on-pop); }
+.form-card .btn { text-align: center; }

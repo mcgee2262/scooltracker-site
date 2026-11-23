@@ -380,7 +380,7 @@
         var info = L.dayInfo('2026-11-10', { yearStart: st.start, yearEnd: YEAR_END, dayNames: st.names, daysOff: [] });
         var p = el('p', 'su-result');
         p.textContent = 'Tomorrow, Tue Nov 10, is ' + (info.name ? 'a ' + info.name + ' day' : 'school day ' + info.schoolDay) +
-          '. ' + st.picked.length + ' classes added' + (st.picked.length > 5 ? ' (more than 5 needs Pro later; free in beta).' : '.') +
+          '. ' + st.picked.length + ' classes added' + '.' +
           ' Add snow days and holidays any time and the days after them shift.';
         wrap.appendChild(p);
         wrap.appendChild(chip('Start over', function () { fresh(); go(true); }));
@@ -401,7 +401,7 @@
     }
     function note() {
       var n = $('su-note'), k = st.picked.length;
-      n.textContent = k > 5 ? k + ' classes. Free has up to 5. Pro (later) has unlimited. In beta it is all free.' : k + ' of 5 free classes';
+      n.textContent = k + (k === 1 ? ' class' : ' classes') + '. Add as many as you take.';
       n.classList.toggle('over', k > 5);
       $('su-next').disabled = k === 0;
     }
